@@ -115,38 +115,12 @@
 
 
 
-	;;;REMOVING NONNECESSARY SETS
-	;(setf deltemp '())
-	;(do ((k (1- (length lkunion)) (decf k)))
-		;((<= k 0) lkunion)
-		;(let ((tmp (nth k lkunion)))
-			;(loop for key being the hash-keys in tmp
-						;do (progn
-								 ;(setf pset (len-smaller-subsets key))
-								 ;(dolist (l pset)
-									 ;(if (> (length l) 0)
-										 ;(setf tmp (nth (1- (length l)) lkunion))
-										 ;(if (gethash l tmp)
-											 ;(push l deltemp))))))))
-
-	;(dolist (i deltemp)
-		;(remhash i (nth (1- (length i)) lkunion)))
-
 
 
 	(list lkunion ar-dic))
 
 
 
-
-;(dolist (lk (apriori '((1 2 5) (2 4) (2 3) (1 2 4) (1 3) (2 3) (1 3) (1 2 3 5) (1 2 3)) :min-sup 1/10))
-		;(loop for key being the hash-keys in lk using (hash-value value)
-				;do (format t "~{~D ~} : ~F~%" (if (listp key) key (list key)) value)))
-
-
-;(dolist (lk (apriori '((1 2 3 4) (1 2 4) (3 4 5 6 7) (1 4 5) (1 2 3 4) (1 2 5) (2 4) (2 3) (1 2 4) (1 3) (2 3) (1 3) (1 2 3 5) (1 2 3) (1 2 4) (3 4 5 6 7) (1 4 5) (1 2 3 4) (1 2 5) (2 4)) :min-sup 0.25))
-	;(loop for key being the hash-keys in lk using (hash-value value)
-				;do (format t "~{~D ~} : ~F~%" (if (listp key) key (list key)) value)))
 
 
 (defun apriori-preprocess (data &key (min-sup 1/10) (min-conf 1/10))
@@ -180,22 +154,6 @@
 	(apriori (reverse new-data) :min-sup min-sup :min-conf min-conf))
 
 
-;(setf result (apriori-preprocess '(("one" "two" "three" "four" "five" "six" "seven" "eight" "nine" "ten") ("one" "seven" "eight" "nine" "ten") ( "four" "five" "six" "seven") ("one") ("eight" "nine" "ten") ("three" "four" "seven" "eight" "ten") ( "four" "nine" "ten") ("one" "ten") ("six" "seven" "eight" "nine" "ten") ("one" "two" "three" "ten") ("one" "three" "five" "seven" "nine")) :min-sup 0.25))
-
-;(setf lkunion (nth 0 result))
-
-;(print (nth 1 result))
-
-;(format t "~3%")
-;(dolist (lk lkunion)
-	;(loop for key being the hash-keys in lk using (hash-value value)
-				;do (progn
-						 ;(setf key (if (listp key) key (list key)))
-						 ;(setq l (loop for i in key collect (aref *ref-map* i)))
-						 ;(format t "~{~D ~}: ~{~A ~^, ~}: ~F~%" (if (listp key) key (list key)) (if (listp l) l (list l)) value))))
-;(format t "~3%")
-
-;(open "/some/file/name.txt" :direction :output :if-exists :supersede)
 
 (defun main ((path "data.txt") &key (min-sup 1/10) (min-conf 1/10))
 	(let ((read-data (open path)) (data '()))
