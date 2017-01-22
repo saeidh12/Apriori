@@ -1,0 +1,17 @@
+
+
+
+9 : ten : 0.8888889
+8 : nine : 0.5555556
+7 : eight : 0.5555556
+6 : seven : 0.5555556
+0 : one : 0.5555556
+7 9 : eight , ten : 0.5555556
+8 9 : nine , ten : 0.5555556
+
+
+
+9  -> 8 : ten  ->  nine  ( CONFIDENCE: 0.625  LIFT: 1.125 )
+8  -> 9 : nine  ->  ten  ( CONFIDENCE: 1.0  LIFT: 1.125 )
+9  -> 7 : ten  ->  eight  ( CONFIDENCE: 0.625  LIFT: 1.125 )
+7  -> 9 : eight  ->  ten  ( CONFIDENCE: 1.0  LIFT: 1.125 )
